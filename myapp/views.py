@@ -23,8 +23,6 @@ def showdata(request):
         frequency.append(row[4])
         path_delay.append(row[5])
 
-
-
     return render(request, 'myapp/showdata.html', 
     {'realtime_timestamp': realtime_timestamp,
         'utc': utc,
@@ -32,6 +30,8 @@ def showdata(request):
         'frequency': frequency,
         'path_delay': path_delay,
     })
+
+
 
 def readcsv(request):
     with open('/home/rtst15/Django_PTP_visual/f_csv/ptpTime5min_14.csv', 'r') as f:
@@ -50,3 +50,16 @@ def readcsv(request):
 def deletedata(request):
     Csvdata.objects.all().delete()
     return render(request, 'myapp/deletedata.html')
+
+def showgraph(request):
+    csv = Csvdata.objects.all()
+    offset = []
+    timestamp = []
+    for row in csv.values_list():
+        timestamp.append(row[1])
+        offset.append(row[3])
+
+    return render(request, 'myapp/showgraph.html', {
+        'offset': offset,
+        'timestamp': timestamp
+    })

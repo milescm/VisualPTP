@@ -8,5 +8,6 @@ urlpatterns = [
     path('showdata/', views.showdata, name='showdata'),
     path('readcsv/', views.readcsv, name='readcsv'),
     path('deletedata/', views.deletedata, name='deletedata'),
+    path('showgraph/', views.showgraph, name='showgraph'),
 
 ]
