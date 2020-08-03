@@ -9,15 +9,19 @@
 
     <body>
         <h1>
-            Read csv file
+            Read csv file completely!!
         </h1>
 
         <ul>
             <li>
-                <a href="home/">Go home</a>
+                <a href="/">Go home</a>
             </li>
         </ul>
-      
+        {% for da in data %}
+        <p>
+            {{ da }}
+        </p>
+        {% endfor %}
     </body>
 
 </html>
