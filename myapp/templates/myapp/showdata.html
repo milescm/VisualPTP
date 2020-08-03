@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <head>
+        <title>
+            showdata Page
+        </title>
+    </head>
+
+    <body>
+        <h1>
+            showdata Page
+        </h1>
+        
+        <ul>
+            <li>
+                <a href="home/">Go home</a>
+            </li>
+            <li>
+                <a href="deletedata/">Delete data from Django DB</a>
+            </li>
+        </ul>
+
+
+        <div class="container">
+            <script type="text/javascript">
+                var timestamp = "{{ realtime_timestamp }}";
+                var utctime = "{{ utc|safe }}";
+                var offset = "{{ master_offset }}";
+                var freq = "{{ frequency }}";
+                var path = "{{ path_delay }}";
+
+                function replaceData(arg_str){
+                    arg_str = arg_str.replace("[","");
+                    arg_str = arg_str.replace("]","");
+                    arg_str = arg_str.split(',');
+                    return arg_str;
+                }
+
+                timestamp = replaceData(timestamp);
+                utctime = replaceData(utctime);
+                offset = replaceData(offset);
+                freq = replaceData(freq);
+                path = replaceData(path);
+
+                var timestamp_ = timestamp.map(function(item){
+                    return parseInt(item,10);
+                });
+
+                var offset_ = offset.map(function(item){
+                    return parseInt(item,10);
+                });
+
+                var freq_ = freq.map(function(item){
+                    return parseInt(item,10);
+                });
+
+                var path_ = path.map(function(item){
+                    return parseInt(item,10);
+                });
+
+                window.onload = function(){
+                    document.getElementById('timestamp_').innerHTML = timestamp_;
+                    document.getElementById('offset_').innerHTML = offset_;
+                    document.getElementById('freq_').innerHTML = freq_;
+                    document.getElementById('path_').innerHTML = path_;
+                }
+
+            </script>
+             <div class="sub container">
+                 <div class="time_var">
+                     Timestamp : <span id="timestamp_"></span>
+                 </div>
+             
+                 <div class="offset_var">
+                     Offset : <span id="offset_"></span>
+                 </div>
+             
+                 <div class="freq_var">
+                     Frequency : <span id="freq_"></span>
+                 </div>
+             
+                 <div class="path_var">
+                     Path Delay : <span id="path_"></span>
+                 </div>
+             </div>
+        </div>
+
+       
+    </body>
+
+</html>
