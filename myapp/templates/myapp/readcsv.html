@@ -19,7 +19,11 @@
         </ul>
         {% for da in data %}
         <p>
-            {{ da }}
+           Realtime Timestamp :  {{ da.realtime_timestamp }} // 
+           UTC : {{ da.utc }} // 
+           Master offset : {{ da.master_offset }} // 
+           Frequency : {{ da.frequency }} // 
+           Path delay : {{ da.path_delay }} //
         </p>
         {% endfor %}
     </body>
