@@ -40,9 +40,13 @@ And then, Install **Django**
 ```sh
 python manage.py runserver
 ```
+
+
 ![Screenshot from 2020-08-04 19-19-18](https://user-images.githubusercontent.com/33818414/89283036-6f08d400-d687-11ea-94d8-607c9316a095.png)
 
 - Default port number : 8000
+
+
 
 
 ![Screenshot from 2020-08-04 16-18-15](https://user-images.githubusercontent.com/33818414/89283130-98296480-d687-11ea-92e9-5e831f12e479.png)
@@ -50,15 +54,21 @@ python manage.py runserver
 - This is the main screen.
 
 
+
+
 ![Screenshot from 2020-08-04 16-18-53](https://user-images.githubusercontent.com/33818414/89283226-c27b2200-d687-11ea-931b-639393e2a436.png)
 
 - This is the screen after reading the csv file.
+
+
 
 
 ![Screenshot from 2020-08-04 16-19-01](https://user-images.githubusercontent.com/33818414/89283275-d9ba0f80-d687-11ea-84f9-06ca2d4745a3.png)
 
 - This is the screen result of the showdata page.
 - Data is output 10 per field.
+
+
 
 
 # Graph 1
