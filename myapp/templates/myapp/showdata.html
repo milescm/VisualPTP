@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <meta charset="UTF-8">
@@ -5,6 +6,7 @@
         <title>
             showdata Page
         </title>
+        <link rel="stylesheet" href="{% static 'css/myapp.css' %}">
     </head>
 
     <body>
@@ -59,31 +61,55 @@
                     return parseInt(item,10);
                 });
 
-                window.onload = function(){
-                    document.getElementById('timestamp_').innerHTML = timestamp_;
-                    document.getElementById('offset_').innerHTML = offset_;
-                    document.getElementById('freq_').innerHTML = freq_;
-                    document.getElementById('path_').innerHTML = path_;
+                var mini_time = [];
+                var mini_utc = [];
+                var mini_offset = [];
+                var mini_freq = [];
+                var mini_path = [];
+
+                for(var i = 0; i < 10; i++){
+                    mini_time[i] = timestamp_[i];
+                    mini_utc[i] = utctime[i];
+                    mini_offset[i] = offset_[i];
+                    mini_freq[i] = freq_[i];
+                    mini_path[i] = path_[i];
                 }
+
+                window.onload = function(){
+                    document.getElementById('timestamp_').innerHTML = mini_time;
+                    document.getElementById('offset_').innerHTML = mini_offset;
+                    document.getElementById('freq_').innerHTML = mini_freq;
+                    document.getElementById('path_').innerHTML = mini_path;
+                }
+
+            
 
             </script>
              <div class="sub container">
-                 <div class="time_var">
-                     Timestamp : <span id="timestamp_"></span>
-                 </div>
-             
-                 <div class="offset_var">
-                     Offset : <span id="offset_"></span>
-                 </div>
-             
-                 <div class="freq_var">
-                     Frequency : <span id="freq_"></span>
-                 </div>
-             
-                 <div class="path_var">
-                     Path Delay : <span id="path_"></span>
-                 </div>
+                
+                  
+                    <div id='display_var'>
+                        <div class="time_var">
+                            Timestamp : 
+                            <span id="timestamp_"></span>
+                        </div>
+                    
+                        <div class="offset_var">
+                            Offset : <span id="offset_"></span>
+                        </div>
+                    
+                        <div class="freq_var">
+                            Frequency : <span id="freq_"></span>
+                        </div>
+                    
+                        <div class="path_var">
+                            Path Delay : <span id="path_"></span>
+                        </div>
+                    </div>
+
+                   
              </div>
+            
         </div>
 
        

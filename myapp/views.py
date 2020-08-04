@@ -34,7 +34,8 @@ def showdata(request):
 
 
 def readcsv(request):
-    with open('/home/rtst15/Django_PTP_visual/f_csv/ptpTime10min_1.csv', 'r') as f:
+
+    with open('/home/rtst15/Django_PTP_visual/f_csv/ptpTime30min_1.csv', 'r') as f:
         dr = csv.DictReader(f)
         s = pd.DataFrame(dr)
     ss = []
@@ -45,7 +46,9 @@ def readcsv(request):
         Csvdata.objects.create(realtime_timestamp=ss[i][0], utc=ss[i][1], master_offset=ss[i][2], frequency=ss[i][3], path_delay=ss[i][4])
 
     data = Csvdata.objects.all().values()
-    return render(request, 'myapp/readcsv.html', {'data': data})
+    return render(request, 'myapp/readcsv.html', {
+        'data': data
+        })
     
 def deletedata(request):
     Csvdata.objects.all().delete()

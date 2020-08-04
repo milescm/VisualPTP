@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html>
     <head>
@@ -19,7 +20,7 @@
   <script src="https://code.highcharts.com/stock/modules/data.js"></script>
   <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
   <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
-  
+  <link rel="stylesheet" href="{% static 'css/myapp.css' %}">
   
 
 </head>
@@ -62,16 +63,24 @@
     window.onload = function() {
     // Create the chart
     Highcharts.stockChart('container1', {
+        
+        tooltip:{
+          formatter: function(){
+              return 'Time : <b>' + this.x + '/s </b>' + ' Offset : <b>' + this.y + '</b>'; 
+          },
+          padding: 17,  
+        },
+    
         xAxis: {
             title:{
                 text: "Time stamp",
                 style:{
                     fontSize: "20px",
                 }
-
+            
             },
 
-            categories: arr_int_realtime,
+
         },
 
         yAxis:{
@@ -80,9 +89,14 @@
                 style: {
                     fontSize: "20px",
                 }
+            },
+            tickAmount: 10,
+            labels:{
+                format: '{value} μs'
             }
         },
-    
+
+
     
         rangeSelector: {
             selected: 1
@@ -101,8 +115,8 @@
             name: 'Offset',
             data: arr_int_offset,
             tooltip: {
-                valueDecimals: 2
-            }
+                valueDecimals: 1
+            },
         }]
     });
 };

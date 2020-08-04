@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <meta charset="UTF-8">
@@ -5,6 +6,7 @@
         <title>
             readcsv page
         </title>
+        <link rel="stylesheet" href="{% static 'css/myapp.css' %}">
     </head>
 
     <body>
@@ -17,6 +19,7 @@
                 <a href="/">Go home</a>
             </li>
         </ul>
+     
         {% for da in data %}
         <p>
            Realtime Timestamp :  {{ da.realtime_timestamp }} // 

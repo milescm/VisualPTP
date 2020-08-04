@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html>
     <head>
@@ -17,7 +18,7 @@
   <script src="https://code.highcharts.com/modules/accessibility.js"></script>
   
 
-
+  <link rel="stylesheet" href="{% static 'css/myapp.css' %}">
 
 
 
@@ -60,6 +61,14 @@
                         
                             Highcharts.chart('container1', {
 
+
+                        tooltip:{
+                        formatter: function(){
+                            return 'Time : <b>' + this.x + '/s </b>' + ' Offset : <b>' + this.y + '</b>'; 
+                                },
+                                padding: 17,  
+                        },
+    
                         title: {
                             text: 'PTP: Synchronization time graph'
                         },
@@ -71,7 +80,11 @@
                         yAxis: {
                             title: {
                                 text: 'Master Offset'
-                            }
+                            },
+                            tickAmount: 10,
+                            labels:{
+                                format: '{value} μs'
+                            },
                         },
 
                         xAxis: {
