@@ -61,16 +61,19 @@ python manage.py runserver
 - Data is output 10 per field.
 
 
-# Graph
-
-
-![Peek 2020-08-04 16-25](https://user-images.githubusercontent.com/33818414/89283379-079f5400-d688-11ea-9d73-d7aa773780ce.gif)
+# Graph 1
 
 
 ![Peek 2020-08-04 16-26](https://user-images.githubusercontent.com/33818414/89283392-0bcb7180-d688-11ea-9c16-f9d0292dfe26.gif)
 
 
 
+
+
+# Graph 2
+
+
+![Peek 2020-08-04 16-25](https://user-images.githubusercontent.com/33818414/89283379-079f5400-d688-11ea-9d73-d7aa773780ce.gif)
 
 
 
