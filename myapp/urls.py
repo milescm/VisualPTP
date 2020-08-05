@@ -10,5 +10,6 @@ urlpatterns = [
     path('deletedata/', views.deletedata, name='deletedata'),
     path('showgraph/', views.showgraph, name='showgraph'),
     path('showstock/', views.showstock, name='showstock'),
+   
 
 ]

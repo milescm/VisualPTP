@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <head>
+        <title>
+            error page
+        </title>
+        <link rel="stylesheet" href="{% static 'css/myapp.css' %}">
+    </head>
+
+    <body>
+        <h1>
+            This is error page
+        </h1>
+        <span>
+            {{ text }}
+        </span>
+        <ul>
+            <li>
+                <a href="/">Go home</a>
+            </li>
+        </ul>
+     
+    </body>
+
+</html>

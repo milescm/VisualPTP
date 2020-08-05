@@ -25,7 +25,7 @@ SECRET_KEY = '-r1481i3^d^ermtsf(ud-4m06mc@(w18_+^ag1)_$z8*0!2)51'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [u'192.168.1.64', u'localhost', u'127.0.0.1']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
+    'django_crontab',
     
 ]
 
@@ -121,3 +122,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+CRONJOBS = [
+    ('*/3 * * * *', 'myapp.cron.mycron'),
+]
