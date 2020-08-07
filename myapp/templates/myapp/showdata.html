@@ -9,7 +9,18 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/myapp.css' %}">
-  
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            
+            th, td {
+                border: 1px solid #444444;
+                padding: 10px;
+            }
+        </style>
     </head>
 
     <body>
@@ -78,40 +89,62 @@
                     mini_path[i] = path_[i];
                 }
 
-                window.onload = function(){
-                    document.getElementById('timestamp_').innerHTML = mini_time;
-                    document.getElementById('offset_').innerHTML = mini_offset;
-                    document.getElementById('freq_').innerHTML = mini_freq;
-                    document.getElementById('path_').innerHTML = mini_path;
+            
+
+                function tableCreate(){
+                    var html = "";
+                    for(var i = 0; i < 10; i++){
+                        html += '<tr>';
+                        html += '<td>'+mini_time[i]+'</td>';
+                        html += '<td>'+mini_utc[i]+'</td>';
+                        html += '<td>'+mini_offset[i]+'</td>';
+                        html += '<td>'+mini_freq[i]+'</td>';
+                        html += '<td>'+mini_path[i]+'</td>';
+                        html += '</tr>';
+                    }
+
+                    $("#dynamicTbody").empty();
+                    $("#dynamicTbody").append(html);
                 }
 
             
 
             </script>
-             <div class="sub container">
                 
                   
-                    <div id='display_var'>
-                        <div class="time_var">
-                            Timestamp : 
-                            <span id="timestamp_"></span>
-                        </div>
-                    
-                        <div class="offset_var">
-                            Offset : <span id="offset_"></span>
-                        </div>
-                    
-                        <div class="freq_var">
-                            Frequency : <span id="freq_"></span>
-                        </div>
-                    
-                        <div class="path_var">
-                            Path Delay : <span id="path_"></span>
-                        </div>
+              
+                    <div id='display_table'>
+                        <h2>
+                            Only 10 elements are output
+                        </h2>
+                        <table id="dynamicTable">
+                            <thead>
+                                <tr>
+                                    <th>
+                                       REALTIME
+                                    </th>
+                                    <th>
+                                        UTC
+                                    </th>
+                                    <th>
+                                        Master Offset
+                                    </th>
+                                    <th>
+                                        Frequency
+                                    </th>
+                                    <th>
+                                        Path Delay
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="dynamicTbody">
+
+                            </tbody>
+                        </table>
+                        <button onclick="tableCreate()">show data</button>
                     </div>
 
                    
-             </div>
             
         </div>
 

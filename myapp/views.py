@@ -36,28 +36,6 @@ def showdata(request):
     })
 
 
-
-def readcsv(request):
-    text = "The Data already exits!"
-    if Csvdata.objects.count() != 0:
-        return render(request, 'myapp/error.html', {'text': text})
-
-    else:
-        with open('/home/rtst15/Django_PTP_visual/f_csv/ptpTime30min_1.csv', 'r') as f:
-            dr = csv.DictReader(f)
-            s = pd.DataFrame(dr)
-        ss = []
-        for i in range(len(s)):
-            st = (s['__REALTIME_TIMESTAMP'][i], s['UTC'][i],s['Master Offset'][i],s['Frequency'][i],s['Path Delay'][i])
-            ss.append(st)
-        for i in range(len(s)):
-            Csvdata.objects.create(realtime_timestamp=ss[i][0], utc=ss[i][1], master_offset=ss[i][2], frequency=ss[i][3], path_delay=ss[i][4])
-
-        data = Csvdata.objects.all().values()
-        return render(request, 'myapp/readcsv.html', {
-            'data': data
-                })
-    
 def deletedata(request):
     Csvdata.objects.all().delete()
     return render(request, 'myapp/deletedata.html')
@@ -94,17 +72,17 @@ def userform(request):
 
 def filecheck(request):
     if Csvdata.objects.count() != 0:
-        message = "The Data already exits!"
-        return JsonResponse({"message": message})
+        text = "The Data already exits!"
+        return render(request, 'myapp/error.html', {'text': text})
     else:
         if request.FILES.__len__()==0:
-            message = "No uplaod file"
-            return JsonResponse({"message": message})
+            text = "No uplaod file"
+            return render(request, 'myapp/error.html', {'text': text})
         else:
             uploadFile = request.FILES['file']
             if uploadFile.name.find('csv')<0:
-                message = "This file is not csv file"
-                return JsonResponse({"message": message})
+                text = "This file is not csv file"
+                return render(request, 'myapp/error.html', {'text': text})
             else:
                 read = uploadFile.read().decode('utf8')
                 readLine = read.split('\n')
