@@ -117,33 +117,9 @@ def filecheck(request):
                 
                 for i in range(1,len(tmp_str)-1):
                     Csvdata.objects.create(realtime_timestamp=tmp_str[i][1], utc=tmp_str[i][2],master_offset=tmp_str[i][3],frequency=tmp_str[i][4],path_delay=tmp_str[i][5])
-                    # print(tmp_str[i][3])
-                # print(tmp_str[0][0])
-                # print(tmp_str[1][0])
-                # print(tmp_str[2][0])
-                # print(tmp_str[10][0])
-
-                # for i in arr:
-                #     print(i[0][1])
-                # # print(arr)
-                message = "Nice csv file and read completely"
+               
+           
                 return render(request, 'myapp/filecheck.html')
 
 
 
-
-
-        #         with open('/home/rtst15/Django_PTP_visual/f_csv/ptpTime30min_1.csv', 'r') as f:
-        #     dr = csv.DictReader(f)
-        #     s = pd.DataFrame(dr)
-        # ss = []
-        # for i in range(len(s)):
-        #     st = (s['__REALTIME_TIMESTAMP'][i], s['UTC'][i],s['Master Offset'][i],s['Frequency'][i],s['Path Delay'][i])
-        #     ss.append(st)
-        # for i in range(len(s)):
-        #     Csvdata.objects.create(realtime_timestamp=ss[i][0], utc=ss[i][1], master_offset=ss[i][2], frequency=ss[i][3], path_delay=ss[i][4])
-
-        # data = Csvdata.objects.all().values()
-        # return render(request, 'myapp/readcsv.html', {
-        #     'data': data
-        #         })
