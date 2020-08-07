@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <head>
+        <title>
+            User form page
+        </title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/myapp.css' %}">
+    </head>
+
+    <body>
+        <h1>
+            Upload your csv file
+        </h1>
+
+        <form action = "/filecheck/" method="post" id="file" enctype="multipart/form-data" >
+            {% csrf_token %}
+            <div>
+                Upload file : <input type="file" name="file" required="csv"/>
+            </div>
+            <input type="submit">
+        </form>
+    </body>
+
+</html>
