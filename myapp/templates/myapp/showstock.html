@@ -20,14 +20,16 @@
   <script src="https://code.highcharts.com/stock/modules/data.js"></script>
   <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
   <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="{% static 'css/myapp.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/error.css' %}">
   
 
 </head>
 
 <body>
+    <h1>
+        Zoom IN/Out Graph
+    </h1>
 
 
     <div class ="container">
@@ -128,12 +130,9 @@
 
 
 
-<div id="sub container">
-    <ul>
-        <li>
-            <a href="/">Go home</a>
-        </li>
-    </ul>
+
+<div class="frame">
+    <button class="custom-btn btn-1" onclick="location='/'"><span>Home</span></button>
 </div>
 </body>
 
