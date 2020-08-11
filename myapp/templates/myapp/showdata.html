@@ -6,36 +6,22 @@
         <title>
             showdata Page
         </title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/myapp.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/showdata.css' %}">
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-        <style>
-            table {
-                width: 100%;
-                border-collapse: collapse;
-            }
-            
-            th, td {
-                border: 1px solid #444444;
-                padding: 10px;
-            }
-        </style>
     </head>
 
     <body>
         <h1>
-            showdata Page
+            Show/Delete Data
         </h1>
         
-        <ul>
-            <li>
-                <a href="/">Go home</a>
-            </li>
-            <li>
-                <a href="/deletedata">Delete data from Django DB</a>
-            </li>
-        </ul>
+      
+
+        <div class="frame">
+            <button class="custom-btn btn-1" onclick="location='/'"><span>Home</span></button>
+            <button class="custom-btn btn-2" onclick="location='/deletedata'"><span>Delete data</span></button>    
+        </div>
 
 
         <div class="container">
@@ -95,11 +81,11 @@
                     var html = "";
                     for(var i = 0; i < 10; i++){
                         html += '<tr>';
-                        html += '<td>'+mini_time[i]+'</td>';
-                        html += '<td>'+mini_utc[i]+'</td>';
-                        html += '<td>'+mini_offset[i]+'</td>';
-                        html += '<td>'+mini_freq[i]+'</td>';
-                        html += '<td>'+mini_path[i]+'</td>';
+                        html += '<td data-label="Time">'+mini_time[i]+'</td>';
+                        html += '<td data-label="UTC">'+mini_utc[i]+'</td>';
+                        html += '<td data-label="Offset">'+mini_offset[i]+'</td>';
+                        html += '<td data-label="Frequency">'+mini_freq[i]+'</td>';
+                        html += '<td data-label="Delay">'+mini_path[i]+'</td>';
                         html += '</tr>';
                     }
 
@@ -107,32 +93,30 @@
                     $("#dynamicTbody").append(html);
                 }
 
-            
+           
 
             </script>
                 
                   
               
                     <div id='display_table'>
-                        <h2>
-                            Only 10 elements are output
-                        </h2>
                         <table id="dynamicTable">
+                            <caption>Features Summary</caption>
                             <thead>
                                 <tr>
-                                    <th>
+                                    <th scope="col">
                                        REALTIME
                                     </th>
-                                    <th>
+                                    <th scope="col">
                                         UTC
                                     </th>
-                                    <th>
+                                    <th scope="col">
                                         Master Offset
                                     </th>
-                                    <th>
+                                    <th scope="col">
                                         Frequency
                                     </th>
-                                    <th>
+                                    <th scope="col">
                                         Path Delay
                                     </th>
                                 </tr>
@@ -141,9 +125,11 @@
 
                             </tbody>
                         </table>
-                        <button onclick="tableCreate()">show data</button>
                     </div>
 
+                    <div class="frame">
+                        <button class="custom-btn btn-3" onclick="tableCreate()"><span>Show</span></button>
+                    </div>
                    
             
         </div>

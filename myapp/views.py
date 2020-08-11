@@ -20,13 +20,19 @@ def showdata(request):
     frequency = []
     path_delay = []
 
+    count = 0
     for row in csv.values_list():
-        realtime_timestamp.append(row[1])
-        utc.append(row[2])
-        master_offset.append(row[3])
-        frequency.append(row[4])
-        path_delay.append(row[5])
-
+        if(count>10):
+            break
+        else:
+            realtime_timestamp.append(row[1])
+            utc.append(row[2])
+            master_offset.append(row[3])
+            frequency.append(row[4])
+            path_delay.append(row[5])
+        count+=1
+    
+    
     return render(request, 'myapp/showdata.html', 
     {'realtime_timestamp': realtime_timestamp,
         'utc': utc,

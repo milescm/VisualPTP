@@ -6,24 +6,49 @@
         <title>
             User form page
         </title>
-
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/myapp.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">        
+        <link rel="stylesheet" href="{% static 'css/userform.css' %}">
     </head>
 
     <body>
-        <h1>
-            Upload your csv file
-        </h1>
 
-        <form action = "/filecheck/" method="post" id="file" enctype="multipart/form-data" >
-            {% csrf_token %}
-            <div>
-                Upload file : <input type="file" name="file" required="csv"/>
-            </div>
-            <input type="submit">
-        </form>
+        <h1>
+            PTP-csv File Upload
+            
+        </h1>
+        <div class="frame">
+            <span>
+                Required Features : Timestamp / UTC / Offset / Frequency / Delay
+            </span>
+        </div>
+        
+
+        <div class="frame">
+            <form action = "/filecheck/" method="post" id="fileform" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div>
+                   
+                    <span>Upload File : </span><input type="file" name="file" required="csv"/>
+                    <br>
+                    <button class="custom-btn btn-3" type = "submit"><span>Submit</span></button>
+                   
+                </div>
+            </form>
+
+
+            <p>
+                Before you upload, check DB
+            </p>
+
+            <button class="custom-btn btn-4" onclick="location='/'"><span>Home</span></button>
+         
+
+            
+        </div>
+        
+    
+
+
     </body>
 
 </html>

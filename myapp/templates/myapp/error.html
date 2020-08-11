@@ -6,21 +6,24 @@
         <title>
             error page
         </title>
-        <link rel="stylesheet" href="{% static 'css/myapp.css' %}">
+        <link rel="stylesheet" href="{% static 'css/error.css' %}">
     </head>
 
     <body>
         <h1>
             This is error page
         </h1>
-        <span>
-            {{ text }}
-        </span>
-        <ul>
-            <li>
-                <a href="/">Go home</a>
-            </li>
-        </ul>
+
+        <div class="frame">
+            <p>
+                {{ text }}
+            </p>
+
+
+           <button class="custom-btn btn-1" onclick="location='/'"><span>Home</span></button>
+         
+
+        </div>
      
     </body>
 
