@@ -6,33 +6,29 @@
         <title>
             Home page
         </title>
-
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/myapp.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     </head>
 
     <body>
         <h1>
-            PTPVisual
+            Home - PTPVisual
         </h1>
+       
 
-        <ul>
-            <li>
-                <a href="showdata/">Check current data in DataBase</a>
-            </li>
-            <li>
-                <a href="userform/">Upload your csv file</a>
-            </li>
-            <li>
-                <a href="showgraph/">Show graph1</a>
-            </li>
-            <li>
-                <a href="showstock/">Show graph2</a>
-            </li>
-            
-          
-        </ul>
+        <div class="frame">
+            <button class="custom-btn btn-1" onclick="location='/showdata'"><span>Check data in DB</span></button>
+            <button class="custom-btn btn-2" onclick="location='/userform'"><span>Upload csv file</span></button>
+            <button class="custom-btn btn-3" onclick="location='/showgraph'"><span>Normal Graph</span></button>
+            <button class="custom-btn btn-4" onclick="location='/showstock'"><span>Zoom Graph</span></button>
+
+
+            <p style="font-family: Andale Mono, monospace;">
+                <a href="https://github.com/milescm/VisualPTP">Github</a>
+            </p>
+        
+        </div>
+        
     </body>
 
 </html>
