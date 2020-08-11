@@ -31,8 +31,7 @@ def showdata(request):
             frequency.append(row[4])
             path_delay.append(row[5])
         count+=1
-    
-    
+        
     return render(request, 'myapp/showdata.html', 
     {'realtime_timestamp': realtime_timestamp,
         'utc': utc,
