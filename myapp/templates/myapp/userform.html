@@ -22,6 +22,11 @@
             <span>
                 Required Features : Timestamp / UTC / Offset / Frequency / Delay
             </span>
+
+            
+
+
+            
         </div>
         
 
@@ -29,9 +34,11 @@
             <form action = "/filecheck/" method="post" id="fileform" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div>
+
                    
                     <span>Upload File : </span><input type="file" name="file" id = "inputfile" required="csv"/>
                     <br>
+                   
                     <button class="custom-btn btn-3" id="sub" type = "submit" ><span>Submit</span></button>
                    
                 </div>
@@ -60,10 +67,17 @@
 
             <p>
                 Before you upload, check DB
+                OR Click to download testfile.csv
             </p>
 
+            <button class="custom-btn btn-4" onclick="location='/downloadcsv'"> 
+                <span>
+                    testfile.csv
+                </span>
+            </button>
+
             <button class="custom-btn btn-4" onclick="location='/'"><span>Home</span></button>
-         
+            
 
             
         </div>

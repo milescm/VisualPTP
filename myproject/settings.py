@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
-    'django_crontab',
     
 ]
 
@@ -123,6 +122,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-CRONJOBS = [
-    ('*/3 * * * *', 'myapp.cron.mycron'),
-]

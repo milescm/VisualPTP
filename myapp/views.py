@@ -1,12 +1,8 @@
 from django.shortcuts import render, redirect
-import random
 from .models import Csvdata
-import csv, io
-import pandas as pd
-from django.db import IntegrityError
-from django.http import JsonResponse
-from django.contrib import messages
-
+import csv, io, os
+from django.http import HttpResponse, Http404
+from myproject.settings import STATIC_ROOT
 
 def home(request):
     return render(request, 'myapp/home.html')
@@ -106,3 +102,11 @@ def filecheck(request):
 
 
 
+def downloadcsv(request):
+    file_path = os.path.join(STATIC_ROOT, 'testfile.csv')
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-Excel")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+    raise Http404
