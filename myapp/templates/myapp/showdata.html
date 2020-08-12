@@ -1,140 +1,135 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-    <meta charset="UTF-8">
-    <head>
-        <title>
-            showdata Page
-        </title>
-        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'css/showdata.css' %}">
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-    </head>
+<meta charset="UTF-8">
 
-    <body>
-        <h1>
-            Show/Delete Data
-        </h1>
-        
-      
+<head>
+    <title>
+        showdata Page
+    </title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/showdata.css' %}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>
+        Show/Delete Data
+    </h1>
+
+
+
+    <div class="frame">
+        <button class="custom-btn btn-1" onclick="location='/'"><span>Home</span></button>
+        <button class="custom-btn btn-2" onclick="location='/deletedata'"><span>Delete data</span></button>
+    </div>
+
+
+    <div class="container">
+        <script type="text/javascript">
+            var timestamp = "{{ realtime_timestamp }}";
+            var utctime = "{{ utc|safe }}";
+            var offset = "{{ master_offset }}";
+            var freq = "{{ frequency }}";
+            var path = "{{ path_delay }}";
+
+            function replaceData(arg_str) {
+                arg_str = arg_str.replace("[", "");
+                arg_str = arg_str.replace("]", "");
+                arg_str = arg_str.split(',');
+                return arg_str;
+            }
+
+            timestamp = replaceData(timestamp);
+            utctime = replaceData(utctime);
+            offset = replaceData(offset);
+            freq = replaceData(freq);
+            path = replaceData(path);
+
+            var timestamp_ = timestamp.map(function (item) {
+                return parseInt(item, 10);
+            });
+
+            var offset_ = offset.map(function (item) {
+                return parseInt(item, 10);
+            });
+
+            var freq_ = freq.map(function (item) {
+                return parseInt(item, 10);
+            });
+
+            var path_ = path.map(function (item) {
+                return parseInt(item, 10);
+            });
+
+            var mini_time = [];
+            var mini_utc = [];
+            var mini_offset = [];
+            var mini_freq = [];
+            var mini_path = [];
+
+            for (var i = 0; i < 10; i++) {
+                mini_time[i] = timestamp_[i];
+                mini_utc[i] = utctime[i];
+                mini_offset[i] = offset_[i];
+                mini_freq[i] = freq_[i];
+                mini_path[i] = path_[i];
+            }
+
+            function tableCreate() {
+                var html = "";
+                for (var i = 0; i < 10; i++) {
+                    html += '<tr>';
+                    html += '<td data-label="Time">' + mini_time[i] + '</td>';
+                    html += '<td data-label="UTC">' + mini_utc[i] + '</td>';
+                    html += '<td data-label="Offset">' + mini_offset[i] + '</td>';
+                    html += '<td data-label="Frequency">' + mini_freq[i] + '</td>';
+                    html += '<td data-label="Delay">' + mini_path[i] + '</td>';
+                    html += '</tr>';
+                }
+
+                $("#dynamicTbody").empty();
+                $("#dynamicTbody").append(html);
+            }
+        </script>
+
+        <div id='display_table'>
+            <table id="dynamicTable">
+                <caption>Features Summary</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            REALTIME
+                        </th>
+                        <th scope="col">
+                            UTC
+                        </th>
+                        <th scope="col">
+                            Master Offset
+                        </th>
+                        <th scope="col">
+                            Frequency
+                        </th>
+                        <th scope="col">
+                            Path Delay
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="dynamicTbody">
+
+                </tbody>
+            </table>
+        </div>
 
         <div class="frame">
-            <button class="custom-btn btn-1" onclick="location='/'"><span>Home</span></button>
-            <button class="custom-btn btn-2" onclick="location='/deletedata'"><span>Delete data</span></button>    
+            <button class="custom-btn btn-3" onclick="tableCreate()"><span>Show</span></button>
         </div>
 
 
-        <div class="container">
-            <script type="text/javascript">
-                var timestamp = "{{ realtime_timestamp }}";
-                var utctime = "{{ utc|safe }}";
-                var offset = "{{ master_offset }}";
-                var freq = "{{ frequency }}";
-                var path = "{{ path_delay }}";
+    </div>
 
-                function replaceData(arg_str){
-                    arg_str = arg_str.replace("[","");
-                    arg_str = arg_str.replace("]","");
-                    arg_str = arg_str.split(',');
-                    return arg_str;
-                }
 
-                timestamp = replaceData(timestamp);
-                utctime = replaceData(utctime);
-                offset = replaceData(offset);
-                freq = replaceData(freq);
-                path = replaceData(path);
-
-                var timestamp_ = timestamp.map(function(item){
-                    return parseInt(item,10);
-                });
-
-                var offset_ = offset.map(function(item){
-                    return parseInt(item,10);
-                });
-
-                var freq_ = freq.map(function(item){
-                    return parseInt(item,10);
-                });
-
-                var path_ = path.map(function(item){
-                    return parseInt(item,10);
-                });
-
-                var mini_time = [];
-                var mini_utc = [];
-                var mini_offset = [];
-                var mini_freq = [];
-                var mini_path = [];
-
-                for(var i = 0; i < 10; i++){
-                    mini_time[i] = timestamp_[i];
-                    mini_utc[i] = utctime[i];
-                    mini_offset[i] = offset_[i];
-                    mini_freq[i] = freq_[i];
-                    mini_path[i] = path_[i];
-                }
-
-            
-
-                function tableCreate(){
-                    var html = "";
-                    for(var i = 0; i < 10; i++){
-                        html += '<tr>';
-                        html += '<td data-label="Time">'+mini_time[i]+'</td>';
-                        html += '<td data-label="UTC">'+mini_utc[i]+'</td>';
-                        html += '<td data-label="Offset">'+mini_offset[i]+'</td>';
-                        html += '<td data-label="Frequency">'+mini_freq[i]+'</td>';
-                        html += '<td data-label="Delay">'+mini_path[i]+'</td>';
-                        html += '</tr>';
-                    }
-
-                    $("#dynamicTbody").empty();
-                    $("#dynamicTbody").append(html);
-                }
-
-           
-
-            </script>
-                
-                  
-              
-                    <div id='display_table'>
-                        <table id="dynamicTable">
-                            <caption>Features Summary</caption>
-                            <thead>
-                                <tr>
-                                    <th scope="col">
-                                       REALTIME
-                                    </th>
-                                    <th scope="col">
-                                        UTC
-                                    </th>
-                                    <th scope="col">
-                                        Master Offset
-                                    </th>
-                                    <th scope="col">
-                                        Frequency
-                                    </th>
-                                    <th scope="col">
-                                        Path Delay
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody id="dynamicTbody">
-
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="frame">
-                        <button class="custom-btn btn-3" onclick="tableCreate()"><span>Show</span></button>
-                    </div>
-                   
-            
-        </div>
-
-       
-    </body>
+</body>
 
 </html>

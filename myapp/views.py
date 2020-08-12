@@ -4,9 +4,11 @@ import csv, io, os
 from django.http import HttpResponse, Http404
 from myproject.settings import STATIC_ROOT
 
+# Home page
 def home(request):
     return render(request, 'myapp/home.html')
 
+# Read sqlite3.db, load datas
 def showdata(request):
     csv = Csvdata.objects.all()
     
@@ -37,10 +39,12 @@ def showdata(request):
     })
 
 
+# Empty the contents of the database
 def deletedata(request):
     Csvdata.objects.all().delete()
     return render(request, 'myapp/deletedata.html')
 
+# Print the graph on the web
 def showgraph(request):
     csv = Csvdata.objects.all()
     offset = []
@@ -55,6 +59,7 @@ def showgraph(request):
     })
 
 
+# Print the zoom in/out on the web
 def showstock(request):
     csv = Csvdata.objects.all()
     offset = []
@@ -68,9 +73,12 @@ def showstock(request):
         'timestamp': timestamp
     })
 
+# Rendering userform page
 def userform(request):
     return render(request, 'myapp/userform.html')
 
+
+# Check if the data exits in database, check if it is a csv file
 def filecheck(request):
     if Csvdata.objects.count() != 0:
         text = "The Data already exits!"
@@ -102,6 +110,7 @@ def filecheck(request):
 
 
 
+# Download the csv file already uploaded to the server 'static' folder
 def downloadcsv(request):
     file_path = os.path.join(STATIC_ROOT, 'testfile.csv')
     if os.path.exists(file_path):

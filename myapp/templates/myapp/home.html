@@ -1,34 +1,35 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-    <meta charset="UTF-8">
-    <head>
-        <title>
-            Home page
-        </title>
+<meta charset="UTF-8">
+
+<head>
+    <title>
+        Home page
+    </title>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    </head>
+</head>
 
-    <body>
-        <h1>
-            PTP Visual
-        </h1>
-       
-
-        <div class="frame">
-            <button class="custom-btn btn-1" onclick="location='showdata/'"><span>Check data in DB</span></button>
-            <button class="custom-btn btn-2" onclick="location='userform/'"><span>Upload csv file</span></button>
-            <button class="custom-btn btn-3" onclick="location='showgraph/'"><span>Normal Graph</span></button>
-            <button class="custom-btn btn-4" onclick="location='showstock/'"><span>Zoom Graph</span></button>
+<body>
+    <h1>
+        PTP Visual
+    </h1>
 
 
-            <p style="font-family: Andale Mono, monospace;">
-                <a href="https://github.com/milescm/VisualPTP" target="_blank">Github</a>
-            </p>
-        
-        </div>
-        
-    </body>
+    <div class="frame">
+        <button class="custom-btn btn-1" onclick="location='showdata/'"><span>Check data in DB</span></button>
+        <button class="custom-btn btn-2" onclick="location='userform/'"><span>Upload csv file</span></button>
+        <button class="custom-btn btn-3" onclick="location='showgraph/'"><span>Normal Graph</span></button>
+        <button class="custom-btn btn-4" onclick="location='showstock/'"><span>Zoom Graph</span></button>
+
+
+        <p style="font-family: Andale Mono, monospace;">
+            <a href="https://github.com/milescm/VisualPTP" target="_blank">Github</a>
+        </p>
+
+    </div>
+
+</body>
 
 </html>
