@@ -42,6 +42,9 @@ And then, Install **Django**
 nohup python manage.py runserver 0.0.0.0:8080 
 ```
 
+Run it as a daemon using the **nohup** command.
+Even if ssh, terminal connection is terminated, it runs without problem.
+
 
 ### Main Page
 
