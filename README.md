@@ -8,6 +8,7 @@ Python version : 3.6.9
 
 Django version : 2.0.13 
 
+AWS console : Ubuntu Server 18.04 LTS
 
 # Precondition
 You must install the virtual environment first, and then run the program.
@@ -38,54 +39,38 @@ And then, Install **Django**
 # Configuration
 ## Run server, execute the following command.
 ```sh
-python manage.py runserver
+nohup python manage.py runserver 0.0.0.0:8080 
 ```
 
 
-![Screenshot from 2020-08-04 19-19-18](https://user-images.githubusercontent.com/33818414/89283036-6f08d400-d687-11ea-94d8-607c9316a095.png)
+### Main Page
 
-- Default port number : 8000
-
-
-
-
-![Screenshot from 2020-08-04 16-18-15](https://user-images.githubusercontent.com/33818414/89283130-98296480-d687-11ea-92e9-5e831f12e479.png)
-
-- This is the main screen.
+![Screenshot from 2020-08-12 13-58-32](https://user-images.githubusercontent.com/33818414/89976659-0089ce80-dca4-11ea-9ebb-395ca90e8c03.png)
 
 
 
+### Show data page
 
-![Screenshot from 2020-08-04 16-18-53](https://user-images.githubusercontent.com/33818414/89283226-c27b2200-d687-11ea-931b-639393e2a436.png)
+![Screenshot from 2020-08-12 13-59-45](https://user-images.githubusercontent.com/33818414/89976729-30d16d00-dca4-11ea-89a0-fed68f169ba4.png)
 
-- This is the screen after reading the csv file.
+- This is the screen after reading database.
 
 
 
 
-![Screenshot from 2020-08-04 16-19-01](https://user-images.githubusercontent.com/33818414/89283275-d9ba0f80-d687-11ea-84f9-06ca2d4745a3.png)
-
-- This is the screen result of the showdata page.
-- Data is output 10 per field.
+### Normal Graph 
 
 
-
-
-# Graph 1
-
-
-![Peek 2020-08-04 16-26](https://user-images.githubusercontent.com/33818414/89283392-0bcb7180-d688-11ea-9c16-f9d0292dfe26.gif)
+![Screenshot from 2020-08-12 14-01-07](https://user-images.githubusercontent.com/33818414/89976760-4b0b4b00-dca4-11ea-9a98-210411a0e88c.png)
 
 
 
 
 
-# Graph 2
+### Zoom In/Out Graph 
 
 
-![Peek 2020-08-04 16-25](https://user-images.githubusercontent.com/33818414/89283379-079f5400-d688-11ea-9d73-d7aa773780ce.gif)
-
-
+![Screenshot from 2020-08-12 14-00-02](https://user-images.githubusercontent.com/33818414/89976787-624a3880-dca4-11ea-89b7-c3236d92b075.png)
 
 
 
