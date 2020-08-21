@@ -119,6 +119,13 @@
                 }]
             });
         };
+
+        setTimeout(function () {
+            var dis1 = document.getElementsByClassName('highcharts-input-group')[0].style.display = 'none';
+            var dis2 = document.getElementsByClassName('highcharts-axis-labels highcharts-xaxis-labels');
+            dis2[0].childNodes[0].childNodes[0].innerHTML = "000";
+        }, 100);
+
     </script>
 
 
@@ -128,4 +135,5 @@
 
 
 </body>
+
 </html>

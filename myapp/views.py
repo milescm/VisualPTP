@@ -41,14 +41,20 @@ def showdata(request):
 
 # Empty the contents of the database
 def deletedata(request):
-    Csvdata.objects.all().delete()
-    return render(request, 'myapp/deletedata.html')
+    if Csvdata.objects.count() != 0:
+        Csvdata.objects.all().delete()
+        return render(request, 'myapp/deletedata.html')
+    else:
+        text = "DB is empty"
+        return render(request, 'myapp/error.html', {'text': text})
+
 
 # Print the graph on the web
 def showgraph(request):
     csv = Csvdata.objects.all()
     offset = []
     timestamp = []
+    
     for row in csv.values_list():
         timestamp.append(row[1])
         offset.append(row[3])
