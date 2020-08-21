@@ -22,7 +22,8 @@
 
     <div class="frame">
         <button class="custom-btn btn-1" onclick="location='/'"><span>Home</span></button>
-        <button class="custom-btn btn-2" onclick="location='/deletedata'"><span>Delete data</span></button>
+        <!-- <button class="custom-btn btn-2" onclick="location='/deletedata'"><span>Delete data</span></button> -->
+        <button class="custom-btn btn-2" onclick="delete_button_click();"><span>Delete data</span></button>
     </div>
 
 
@@ -91,6 +92,18 @@
 
                 $("#dynamicTbody").empty();
                 $("#dynamicTbody").append(html);
+            }
+
+            function delete_button_click() {
+                var confirm_test = confirm("Want to empty the DB?");
+
+                if(confirm_test == true){
+                    location.href = "/deletedata";
+                }
+                else{
+                    location.reload();   
+                }
+                
             }
         </script>
 
