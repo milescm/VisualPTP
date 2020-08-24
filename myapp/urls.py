@@ -11,7 +11,8 @@ urlpatterns = [
     path('showstock/', views.showstock, name='showstock'),
     path('userform/', views.userform, name='userform'),
     path('filecheck/', views.filecheck, name='filecheck'),
-    path('downloadcsv/', views.downloadcsv, name='downloadcsv')
+    path('downloadcsv/', views.downloadcsv, name='downloadcsv'),
+    path('downloadrmscsv/', views.downloadrmscsv, name='downloadrmscsv'),
     
 
     

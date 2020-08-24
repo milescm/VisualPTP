@@ -125,3 +125,13 @@ def downloadcsv(request):
             response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
             return response
     raise Http404
+
+# Download the rms csv file already uploaded to the server 'static' folder
+def downloadrmscsv(request):
+    file_path = os.path.join(STATIC_ROOT, 'rms_testfile.csv')
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-Excel")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+    raise Http404
