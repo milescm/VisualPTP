@@ -9,3 +9,4 @@ class Csvdata(models.Model):
     master_offset = models.IntegerField()
     frequency = models.IntegerField()
     path_delay = models.IntegerField()
+
