@@ -54,15 +54,6 @@ And then, Install **Django**
 
 
 
-### Show data page
-
-![Screenshot from 2020-08-12 13-59-45](https://user-images.githubusercontent.com/33818414/89976729-30d16d00-dca4-11ea-89a0-fed68f169ba4.png)
-
-- This is the screen after reading database.
-
-
-
-
 ### Normal Graph 
 
 
