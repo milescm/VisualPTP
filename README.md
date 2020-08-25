@@ -10,10 +10,6 @@ Django version : 2.0.13
 
 AWS console : Ubuntu Server 18.04 LTS
 
-# Precondition
-You must install the virtual environment first, and then run the program.
-
-The process of installing the virtual environment is as follows:
 
 # Dockerfile
 ```
@@ -22,6 +18,13 @@ $ docker build -t <tag name> .
 After entering the docker build command, you can specify the name (tag) of the image to be created by entering the -t option.
 Behind it **.** Is the Dockerfile and the path where the content is located.
 
+
+
+
+# Precondition (When not using Docker)
+You must install the virtual environment first, and then run the program.
+
+The process of installing the virtual environment is as follows:
 
 
 ```
